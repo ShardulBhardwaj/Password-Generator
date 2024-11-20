@@ -70,10 +70,19 @@ function getRandomSymbols(){
 }
 
 function upper(){
-    let isUpper = document.getElementById("upperCase")
-    if (isUpper.checked){
-        selected.upper = true
-    }else if ()
+
+}
+
+function lower(){
+
+}
+
+function number(){
+
+}
+
+function symbols(){
+
 }
 
 
