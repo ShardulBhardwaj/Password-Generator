@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <div class="passwordGen">
+
+        <h1>PASSWORD GENERATOR</h1>
+
+        <div class="password">
+            <ul>
+                <li id="password"> </li>
+                <li class="button"><button id="copy"     onclick="Copy()"     >COPY TO CLIPBOARD</button></li>
+                <li class="button"><button id="generate" onclick="Generate()" >GENERATE</button></li>
+            </ul>
+        </div>
+
+        <div class="container">
+
+            <label for="length">Password Length</label>
+            <input id="length" type="number" min="1" max="40" value="1"><br>
+
+        </div>
+
+        <div class="container">
+
+            <label for="upperCase">Include uppercase letters</label>
+            <input id="upperCase" type="checkbox" onclick="upper()" checked><br>
+
+        </div>
+
+        <div class="container">
+
+            <label for="lowerCase">Include lowercase letters</label>
+            <input id="lowerCase" type="checkbox" onclick="lower()" checked><br>
+
+        </div>
+
+        <div class="container">
+
+            <label for="numbers">Include numbers</label>
+            <input id="numbers" type="checkbox" onclick="number()" checked><br>
+
+        </div>
+
+        <div class="container">
+
+            <label for="symbols">Include symbols</label>
+            <input id="symbols" type="checkbox" onclick="symbols()" checked>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
