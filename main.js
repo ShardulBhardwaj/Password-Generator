@@ -1,9 +1,9 @@
 
-const length   = document.getElementById("length")
-const isUpper  = document.getElementById("upperCase")
-const isLower  = document.getElementById("lowerCase")
-const isNumber = document.getElementById("numbers")
-const isSymbol = document.getElementById("symbols")
+
+
+
+
+
 
 
 let selected = {
@@ -11,7 +11,7 @@ let selected = {
     ,lower:  true
     ,number: true
     ,symbols:true
-    ,amountSelected: 0
+    ,amountSelected: 4
 }
 
 const specialRegex = /[!@#$%^&*(),.?":{}|<>]/g
@@ -45,33 +45,47 @@ function Copy() {
 }
 
 function Generate(){
+    const length   = document.getElementById("length")
     let password = document.getElementById("password")
     let pass = ""
     let passwordTrue = false
-    let length = 0
-    while(passwordTrue === false && length === selected.amountSelected){
+    let testLength = 0
 
-        for (let i = 0; i < parseInt(length.value); i++) {
-            pass += getRandomValue()
+    if (parseInt(length.value) === selected.amountSelected || parseInt(length.value) > selected.amountSelected){
+        while(passwordTrue === false && testLength === selected.amountSelected){
+            for (let  i = 0; i < parseInt(length.value); i++){
+                pass += getRandomValue()
+            }
+            console.log(pass)
+            if(selected.upper === true && alphaRegex.test(pass)){
+                testLength++
+                passwordTrue = true
+
+            }if(selected.symbols === true && specialRegex.test(pass)){
+                testLength++
+                passwordTrue = true
+
+            }if(selected.lower === true && smallRegex.test(pass)){
+                testLength++
+                passwordTrue = true
+
+            }if (selected.number === true && numbersRegex.test(pass)){
+                testLength++
+                passwordTrue = true
+
+            }else {
+                testLength = 0
+                passwordTrue = false
+            }
         }
-        if (selected.upper === true && alphaRegex.test(pass) === true){
-            passwordTrue = true
-            length++
-        }if (selected.lower === true && smallRegex.test(pass) === true){
-            passwordTrue = true
-            length++
-        }if (selected.number === true && numbersRegex.test(pass)=== true){
-            passwordTrue = true
-            length++
-        }if (selected.symbols === true && specialRegex.test(pass)=== true){
-            passwordTrue = true
-            length++
-        }else {
-            passwordTrue = false
-        }
+    }else {
+        alert("Failed Please make length equal to or greater then the amount selected")
     }
-
     password.innerText = pass
+
+
+
+
 
 }
 function getRandomValue(){
@@ -82,38 +96,46 @@ function getRandomValue(){
 
 
 function upper(){
-    selected.upper = isUpper.checked;
-    if (isUpper.checked){
+    const isUpper  = document.getElementById("upperCase")
+    if (isUpper.checked === true){
         selected.amountSelected += 1
+        selected.upper = true
     }else {
         selected.amountSelected -= 1
+        selected.upper = false
     }
 }
 
 function lower(){
-    selected.lower = isLower.checked;
-    if (isLower.checked){
+    const isLower  = document.getElementById("lowerCase")
+    if (isLower.checked === true){
         selected.amountSelected += 1
+        selected.lower = true
     }else {
         selected.amountSelected -= 1
+        selected.lower = false
     }
 }
 
 function number(){
-    selected.number = isNumber.checked;
-    if (isNumber.checked){
+    const isNumber = document.getElementById("numbers")
+    if (isNumber.checked === true){
         selected.amountSelected += 1
+        selected.number = true
     }else {
         selected.amountSelected -= 1
+        selected.number = false
     }
 }
 
 function symbols(){
-    selected.symbols = isSymbol.checked;
-    if (isSymbol.checked){
+    const isSymbol = document.getElementById("symbols")
+    if (isSymbol.checked === true){
         selected.amountSelected += 1
+        selected.symbols = true
     }else {
         selected.amountSelected -= 1
+        selected.symbols = false
     }
 }
 
