@@ -16,7 +16,7 @@ let selected = {
 
 const specialRegex = /[!@#$%^&*(),.?":{}|<>]/g
 const smallRegex = /[a-z]/
-const alphaRegex = /[A-Z]/
+const upperRegex = /[A-Z]/
 const numbersRegex = /[0-9]/
 
 
@@ -57,19 +57,25 @@ function Generate(){
                 pass += getRandomValue()
             }
             console.log(pass)
-            if(selected.upper === true && alphaRegex.test(pass)){
+            if(selected.upper && upperRegex.test(pass)) {
                 testLength++
                 passwordTrue = true
 
-            }if(selected.symbols === true && specialRegex.test(pass)){
+            }
+
+            if(selected.symbols && specialRegex.test(pass)){
                 testLength++
                 passwordTrue = true
 
-            }if(selected.lower === true && smallRegex.test(pass)){
+            }
+
+            if(selected.lower && smallRegex.test(pass)){
                 testLength++
                 passwordTrue = true
 
-            }if (selected.number === true && numbersRegex.test(pass)){
+            }
+
+            if (selected.number && numbersRegex.test(pass)){
                 testLength++
                 passwordTrue = true
 
@@ -95,48 +101,6 @@ function getRandomValue(){
 }
 
 
-function upper(){
-    const isUpper  = document.getElementById("upperCase")
-    if (isUpper.checked === true){
-        selected.amountSelected += 1
-        selected.upper = true
-    }else {
-        selected.amountSelected -= 1
-        selected.upper = false
-    }
-}
 
-function lower(){
-    const isLower  = document.getElementById("lowerCase")
-    if (isLower.checked === true){
-        selected.amountSelected += 1
-        selected.lower = true
-    }else {
-        selected.amountSelected -= 1
-        selected.lower = false
-    }
-}
-
-function number(){
-    const isNumber = document.getElementById("numbers")
-    if (isNumber.checked === true){
-        selected.amountSelected += 1
-        selected.number = true
-    }else {
-        selected.amountSelected -= 1
-        selected.number = false
-    }
-}
-
-function symbols(){
-    const isSymbol = document.getElementById("symbols")
-    if (isSymbol.checked === true){
-        selected.amountSelected += 1
-        selected.symbols = true
-    }else {
-        selected.amountSelected -= 1
-        selected.symbols = false
-    }
-}
 
 
