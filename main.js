@@ -35,13 +35,13 @@ function Copy() {
 
 
     navigator.clipboard.writeText(password)
-    .then(() => {
-        alert("Password copied to clipboard!");
-    })
-    .catch((err) => {
-        console.error("Failed to copy text: ", err);
-        alert("Failed to copy text.");
-    });
+        .then(() => {
+            alert("Password copied to clipboard!");
+        })
+        .catch((err) => {
+            console.error("Failed to copy text: ", err);
+            alert("Failed to copy text.");
+        });
 }
 
 function Generate(){
