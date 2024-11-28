@@ -88,17 +88,15 @@ function Generate(){
         alert("Failed Please make length equal to or greater then the amount selected")
     }
     password.innerText = pass
-
-
-
-
-
+    
 }
 function getRandomValue(){
     let value   = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 !\"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~"
     let valueNumber = Math.floor(Math.random() * (25+25+9+32))
     return value[valueNumber]
 }
+
+
 
 
 
