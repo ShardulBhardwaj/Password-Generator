@@ -35,7 +35,7 @@ function Generate() {
     let allowedChars = "";
     let password = "";
 
-    // Add selected character sets to allowed characters
+
     if (lowercaseChecker) allowedChars += lowercaseChars;
     if (uppercaseChecker) allowedChars += uppercaseChars;
     if (numbersChecker) allowedChars += numberChars;
