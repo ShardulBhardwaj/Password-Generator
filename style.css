@@ -3,12 +3,16 @@
 
     padding: 20px 375px 22px 10px;
 
-    width: fit-content;
+    width: 650px;
     height: 15px;
 
 
 }
 
+.passwordGen{
+    padding-left: 300px;
+    padding-right: 300px;
+}
 ul{
     list-style-type: none;
     display: flex;

@@ -1,29 +1,4 @@
 
-
-
-
-
-
-
-
-let selected = {
-     upper:  true
-    ,lower:  true
-    ,number: true
-    ,symbols:true
-    ,amountSelected: 4
-}
-
-const specialRegex = /[!@#$%^&*(),.?":{}|<>]/g
-const smallRegex = /[a-z]/
-const upperRegex = /[A-Z]/
-const numbersRegex = /[0-9]/
-
-
-
-
-
-
 function Copy() {
 
     let password = document.getElementById("password").innerText
@@ -44,12 +19,51 @@ function Copy() {
         });
 }
 
-function Generate(){
-    const length   = document.getElementById("length")
-    let password = document.getElementById("password")
-    let pass = ""
-    let passwordTrue = false
-    let testLength = 0
+function Generate() {
+    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numberChars = "0123456789";
+    const symbolChars = "!@#$%^&*()_+=";
+
+    const lowercaseChecker = document.getElementById("lowerCase").checked;
+    const uppercaseChecker = document.getElementById("upperCase").checked;
+    const numbersChecker = document.getElementById("numbers").checked;
+    const symbolsChecker = document.getElementById("symbols").checked;
+    const lengthInput = document.getElementById("length").value;
+    const textField = document.getElementById("password");
+
+    let allowedChars = "";
+    let password = "";
+
+    // Add selected character sets to allowed characters
+    if (lowercaseChecker) allowedChars += lowercaseChars;
+    if (uppercaseChecker) allowedChars += uppercaseChars;
+    if (numbersChecker) allowedChars += numberChars;
+    if (symbolsChecker) allowedChars += symbolChars;
+
+    const passwordLength = parseInt(lengthInput);
+
+
+    if (allowedChars.length === 0) {
+        textField.innerText = "ERROR: Please select at least one character type!";
+        return;
+    }
+
+    // Generate password
+    for (let i = 0; i < passwordLength; i++) {
+        const randomIndex = Math.floor(Math.random() * allowedChars.length);
+        password += allowedChars[randomIndex];
+    }
+
+    textField.innerText = password;
+}
+
+
+
+
+
+
+
 
     if (parseInt(length.value) === selected.amountSelected || parseInt(length.value) > selected.amountSelected){
         while(passwordTrue === false && testLength === selected.amountSelected){
