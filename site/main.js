@@ -65,50 +65,15 @@ function Generate() {
 
 
 
-    if (parseInt(length.value) === selected.amountSelected || parseInt(length.value) > selected.amountSelected){
-        while(passwordTrue === false && testLength === selected.amountSelected){
-            for (let  i = 0; i < parseInt(length.value); i++){
-                pass += getRandomValue()
-            }
-            console.log(pass)
-            if(selected.upper && upperRegex.test(pass)) {
-                testLength++
-                passwordTrue = true
 
-            }
 
-            if(selected.symbols && specialRegex.test(pass)){
-                testLength++
-                passwordTrue = true
 
-            }
 
-            if(selected.lower && smallRegex.test(pass)){
-                testLength++
-                passwordTrue = true
 
-            }
 
-            if (selected.number && numbersRegex.test(pass)){
-                testLength++
-                passwordTrue = true
 
-            }else {
-                testLength = 0
-                passwordTrue = false
-            }
-        }
-    }else {
-        alert("Failed Please make length equal to or greater then the amount selected")
-    }
-    password.innerText = pass
-    
-}
-function getRandomValue(){
-    let value   = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 !\"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~"
-    let valueNumber = Math.floor(Math.random() * (25+25+9+32))
-    return value[valueNumber]
-}
+
+
 
 
 
